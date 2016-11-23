@@ -18,7 +18,6 @@ public class MenuRoot extends Pane {
     private Image menuImage;
     private ImageView menuImageView;
 
-
     public MenuRoot(){
 
         menuImage = new Image(getClass().getResourceAsStream("BackgroundMenu.png"));
@@ -28,15 +27,19 @@ public class MenuRoot extends Pane {
 
         startGameButton = new RectangleButton("Start game", Color.RED);
         rulesButton = new RectangleButton("Rules", Color.DEEPSKYBLUE);
-        statisticsButton = new RectangleButton("Statistics", Color.BLUE);
+        statisticsButton = new RectangleButton("Statistics", Color.GREENYELLOW);
         exitButton = new RectangleButton("Exit", Color.PURPLE);
 
-        exitButton.setOnMouseClicked(event -> {
-            System.exit(0);
+        startGameButton.setOnMouseClicked(event->{
+            Main.mainScene.setRoot(Main.modeRoot);
         });
 
         rulesButton.setOnMouseClicked(event -> {
            Main.mainScene.setRoot(Main.rulesRoot);
+        });
+
+        exitButton.setOnMouseClicked(event -> {
+            System.exit(0);
         });
 
         buttonLayout = new VBox();

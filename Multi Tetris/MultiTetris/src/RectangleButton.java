@@ -12,18 +12,22 @@ import javafx.util.Duration;
 /**
  * Created by kutko on 22.11.2016.
  */
-public class RectangleButton extends StackPane{
-    public RectangleButton(String name, Color color){
-        Rectangle bg = new Rectangle(300, 65, Color.WHITE);
-        bg.setOpacity(0.5);
+public class RectangleButton extends StackPane {
 
-        Text text = new Text(name);
-        text.setFill(Color.WHITE);
-        text.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+    Rectangle rectangle;
+    Text nameButton;
+
+    public RectangleButton(String name, Color color){
+        rectangle = new Rectangle(300, 65, Color.WHITE);
+        rectangle.setOpacity(0.5);
+
+        nameButton = new Text(name);
+        nameButton.setFill(Color.BLACK);
+        nameButton.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 
         setAlignment(Pos.CENTER);
-        getChildren().addAll(bg, text);
-        FillTransition ft = new FillTransition(Duration.seconds(0.5), bg);
+        getChildren().addAll(rectangle, nameButton);
+        FillTransition ft = new FillTransition(Duration.seconds(0.5), rectangle);
         setOnMouseEntered(event->{
             ft.setFromValue(Color.DARKGRAY);
             ft.setToValue(Color.DARKGOLDENROD);
@@ -35,7 +39,7 @@ public class RectangleButton extends StackPane{
 
         setOnMouseExited(event->{
             ft.stop();
-            bg.setFill(Color.WHITE);
+            rectangle.setFill(Color.WHITE);
         });
     }
 }

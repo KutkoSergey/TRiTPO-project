@@ -1,7 +1,8 @@
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 import java.io.File;
@@ -23,26 +24,27 @@ public class RulesRoot extends Pane {
 
     public RulesRoot (){
 
-        menuImage = new Image(getClass().getResourceAsStream("BackgroundRulesAndStatistics.png"));
+        menuImage = new Image(getClass().getResourceAsStream("BackgroundRules.png"));
         menuImageView = new ImageView(menuImage);
         setPrefSize(980, 680);
         getChildren().add(menuImageView);
 
-        backToMainButton = new RectangleButton("Back to main menu", Color.DEEPSKYBLUE);
+        backToMainButton = new RectangleButton("Back", Color.DEEPSKYBLUE);
         backToMainButton.setOnMouseClicked(event -> {
             Main.mainScene.setRoot(Main.menuRoot);
         });
         backToMainButton.setTranslateY(610);
-        backToMainButton.setTranslateX(300);
+        backToMainButton.setTranslateX(340);
         this.getChildren().add(backToMainButton);
 
         rulesTextArea = new TextArea();
-        rulesTextArea.setMinSize(900, 300);
-        rulesTextArea.setTranslateY(300);
+        rulesTextArea.setMinSize(920, 550);
+        rulesTextArea.setTranslateY(45);
         rulesTextArea.setTranslateX(40);
         rulesTextArea.setStyle("-fx-font-family: Consolas;" +
-                "-fx-font-size: 15;" + "-fx-text-fill: deepskyblue;"
+                "-fx-font-size: 18;" + "-fx-text-fill: deepskyblue;"
                 + "-fx-display-caret:true;");
+
         rulesFile =new File("Rules.txt");
         char[] bufferForRules = new char[(int)rulesFile.length()];
         try( FileReader reader = new FileReader(rulesFile)){
