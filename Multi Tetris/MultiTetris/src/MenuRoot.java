@@ -38,6 +38,10 @@ public class MenuRoot extends Pane {
            Main.mainScene.setRoot(Main.rulesRoot);
         });
 
+        statisticsButton.setOnMouseClicked(event -> {
+            Main.mainScene.setRoot(Main.statisticsRoot);
+        });
+
         exitButton.setOnMouseClicked(event -> {
             System.exit(0);
         });

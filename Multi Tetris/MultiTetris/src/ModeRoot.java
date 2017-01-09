@@ -31,6 +31,12 @@ public class ModeRoot extends Pane {
         twoPlayersButton2 = new RectangleButton("Multiplayer Mode 2", Color.BLUE);
         backButton = new RectangleButton("Back", Color.RED);
 
+        onePlayerButton.setOnMouseClicked(event -> {
+            Main.singleGameRoot = new SingleGameRoot();
+            Main.mainScene.setRoot(Main.singleGameRoot);
+           // Main.singleGameRoot.start();
+        });
+
         backButton.setOnMouseClicked(event -> {
             Main.mainScene.setRoot(Main.menuRoot);
         });

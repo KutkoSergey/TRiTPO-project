@@ -50,7 +50,6 @@ public class RulesRoot extends Pane {
         try( FileReader reader = new FileReader(rulesFile)){
             bufferForRules = new char[(int)rulesFile.length()];
             reader.read(bufferForRules);
-            System.out.println(new String(bufferForRules));
         }
         catch(IOException ex){
             System.out.println(ex.getMessage());
